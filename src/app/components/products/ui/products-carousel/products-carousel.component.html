@@ -1,0 +1,14 @@
+<section class="carousel">
+  <button type="button" class="nav next" aria-label="Siguiente" (click)="next()">›</button>
+
+  <div #track class="track">
+    @for (product of limitedProducts; track product.id){
+    <div class="snap">
+      <app-product-card [product]="product" />
+    </div>
+    }
+  </div>
+  <button type="button" class="nav prev" aria-label="Anterior" (click)="prev()">‹</button>
+
+
+</section>

@@ -1,16 +1,12 @@
-@if (vm$ | async; as vm) {
-@if (vm.loading) { <p>Cargando…</p> }
-@else if (vm.error) { <p class="error">{{ vm.error }}</p> }
-@else {
+
 <div class="grid">
-  @for (product of vm.data; track product.id) {
   <div class="product-card">
-    <img class="product-image" [src]="product.images" [alt]="product.title">
+    <img class="product-image" [src]="product.images" [alt]="product.title" loading="lazy">
     <p class="title">{{product.title}}</p>
-    <p class="price">${{product.price}}</p>
+    <p class="price">{{product.price | currency}}</p>
     <div class="abajo">
       <div class="punctuation">
-        @for (star of starts; track starts) {
+        @for (star of starts; track $index) {
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"
             fill="#FFDD63" />
@@ -25,7 +21,5 @@
         </svg>
       </div>
     </div>
-  </div> }
+  </div> 
 </div>
-}
-}

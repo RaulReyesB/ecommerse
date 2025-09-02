@@ -1,7 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HomeComponent } from './modules/pages/home/home.component';
-import { CarouselComponent } from "./components/carousel/carousel.component";
 
 @Component({
   selector: 'app-root',

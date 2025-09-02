@@ -1,0 +1,43 @@
+.publicityContainer {
+  width: 100%;
+  min-height: 650px; /* similar al alto en Figma */
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+
+  /* Degradado fondo: negro arriba → gris al final */
+  background: linear-gradient(
+    180deg,
+    #000000 0%,
+    #000000 58%,
+    #3b3b3b 90%,
+  );
+}
+
+.publicityContainer .text {
+  max-width: 600px;
+}
+
+.publicityContainer .title {
+  font-size: 64px;
+  font-weight: 800;
+  line-height: 1.1;
+  margin: 0 0 20px;
+  color: #FFFF;
+
+}
+
+.publicityContainer p {
+  font-size: 20px;
+  line-height: 1.4;
+  color: #ffffff;
+  margin: 0 0 40px;
+  opacity: 0.95;
+}
+
+.publicityContainer .image {
+  width: 520px;
+  height: 520px;
+  object-fit: cover;
+  border-radius: 20px;
+}

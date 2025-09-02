@@ -1,0 +1,85 @@
+.carousel {
+  position: relative;
+  width: auto;
+  background-color: #fff;
+}
+
+/* Contenedor deslizante */
+.track {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: clamp(220px, 24vw, 320px);
+  gap: 1rem;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: 1rem;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+
+  /* Ocultar barra de scroll (multi-navegador) */
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.snap {
+  scroll-snap-align: start;
+  padding: 20px;
+  margin-top: 30px;
+}
+
+.nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  inline-size: 2.5rem;
+  block-size: 2.5rem;
+  border: 0;
+  border-radius: 9999px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  z-index: 2; 
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  transition: transform 0.15s ease, opacity 0.15s ease,
+    background-color 0.15s ease;
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.75);
+  }
+  &:active {
+    transform: translateY(-50%) scale(0.95);
+  }
+  &:focus-visible {
+    outline: 3px solid #ffd54f;
+    outline-offset: 2px;
+  }
+  &:disabled {
+    opacity: 0.35;
+    cursor: default;
+  }
+}
+
+.prev {
+  left: 0.5rem;
+}
+.next {
+  right: 0.5rem;
+}
+
+/* Responsive tweaks (opcional) */
+@media (max-width: 640px) {
+  .track {
+    grid-auto-columns: clamp(200px, 70vw, 280px);
+    gap: 0.75rem;
+  }
+  .nav {
+    inline-size: 2.25rem;
+    block-size: 2.25rem;
+  }
+}
