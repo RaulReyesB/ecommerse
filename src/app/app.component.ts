@@ -1,9 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { ProductCardComponent } from './components/product-card/product-card.component';
+import { HomeComponent } from './modules/pages/home/home.component';
+import { CarouselComponent } from "./components/carousel/carousel.component";
+
 @Component({
   selector: 'app-root',
-  imports: [],
+  imports: [HomeComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

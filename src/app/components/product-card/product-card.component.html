@@ -1,14 +1,31 @@
-<div class="product-card">
-  <img class="product-image" src="https://mxsonyb2c.vtexassets.com/arquivos/ids/263793/PS5_DS_Pshot_A.jpg?v=637359703645370000" alt="">
-  <h2 class="titulo">Cotrol play station</h2>
-  <p class="price">$1,100</p>
-  <div class="abajo">
-    <div class="punctuation">
-      ******
+@if (vm$ | async; as vm) {
+@if (vm.loading) { <p>Cargando…</p> }
+@else if (vm.error) { <p class="error">{{ vm.error }}</p> }
+@else {
+<div class="grid">
+  @for (product of vm.data; track product.id) {
+  <div class="product-card">
+    <img class="product-image" [src]="product.images" [alt]="product.title">
+    <p class="title">{{product.title}}</p>
+    <p class="price">${{product.price}}</p>
+    <div class="abajo">
+      <div class="punctuation">
+        @for (star of starts; track starts) {
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"
+            fill="#FFDD63" />
+        </svg>
+        }
+      </div>
+      <div class="cart">
+        <svg width="34" height="34" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M18 6H16V4C16 2.9 15.1 2 14 2H10C8.9 2 8 2.9 8 4V6H6C4.9 6 4 6.9 4 8V20C4 21.1 4.9 22 6 22H18C19.1 22 20 21.1 20 20V8C20 6.9 19.1 6 18 6ZM10 4H14V6H10V4ZM18 20H6V8H18V20Z"
+            fill="#000000" />
+        </svg>
+      </div>
     </div>
-    <div>
-      Bolsa
-    </div>
-  </div>
-
+  </div> }
 </div>
+}
+}
