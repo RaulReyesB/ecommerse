@@ -1,7 +1,5 @@
 import { Component, inject, Input } from '@angular/core';
-import { ProductService } from '../../../../core/service/product/product.service';
-import { catchError, map, of, shareReplay, startWith } from 'rxjs';
-import { Product } from '../../../../core/interface/product/product.model';
+import { Product } from '../../core/interface/product/product.model';
 import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-product-card',

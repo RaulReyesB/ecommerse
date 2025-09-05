@@ -1,0 +1,11 @@
+<nav class="chips" role="tablist" aria-label="Categorías">
+  <button type="button" class="chip" [class.active]="!selected" (click)="select.emit(null)">
+    Todos
+  </button>
+
+  @for (c of categories; track c) {
+  <button type="button" class="chip" [class.active]="selected === c" (click)="select.emit(c)">
+    {{ c }}
+  </button>
+  }
+</nav>

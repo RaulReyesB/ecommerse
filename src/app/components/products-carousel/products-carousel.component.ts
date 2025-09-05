@@ -1,6 +1,6 @@
 import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { ProductCardComponent } from '../product-card/product-card.component';
-import { Product } from '../../../../core/interface/product/product.model';
+import { Product } from '../../core/interface/product/product.model';
 import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-products-carousel',
@@ -25,7 +25,7 @@ export class ProductsCarouselComponent {
   next() {
     this.scrollByPage(1);
   }
-  
+
   limitedProducts: Product[] = [];
 
   ngOnChanges() {

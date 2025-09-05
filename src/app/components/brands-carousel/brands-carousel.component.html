@@ -1,0 +1,11 @@
+<section class="carousel" aria-label="Marcas destacadas">
+
+  <div #track class="track">
+    @for (brand of limitedBrands; track brand.id) {
+    <div class="item" role="img">
+      <img [src]="brand.logoUrl" [alt]="brand.name" loading="lazy" decoding="async" fetchpriority="low" />
+    </div>
+    }
+  </div>
+
+</section>

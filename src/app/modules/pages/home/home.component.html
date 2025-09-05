@@ -1,13 +1,24 @@
 <app-top-bar />
 <app-side-bar />
-<app-card-publicity/>
-@if (vm$ | async; as vm) {
-@if (vm.loading) { <p>Cargando…</p> }
-@else if (vm.error) { <p class="error">{{ vm.error }}</p> }
-@else {
-<div class="grid">
-  <app-products-carousel class="carousel" [products]="vm.data" />
+<app-categories-bar [categories]="(categories$ | async) ?? []" [selected]="(selectedCategory$ | async) ?? null"
+  (select)="onSelectCategory($event)" />
+<main>
+  <app-card-publicity />
 
-</div>
-}
-}
+  @if (vm$ | async; as vm) {
+  @if (vm.loading) { <p>Cargando…</p> }
+  @else if (vm.error) { <p class="error">{{ vm.error }}</p> }
+  @else {
+  <app-products-carousel [products]="vm.data" />
+  }
+  }
+  <app-brands-carousel [brands]="brands" class="carousel-brands" />
+
+  @if (vm$ | async; as vm) {
+  @if (vm.loading) { <p>Cargando…</p> }
+  @else if (vm.error) { <p class="error">{{ vm.error }}</p> }
+  @else {
+  <app-products-carousel [products]="vm.data" />
+  }
+  }
+</main>

@@ -1,0 +1,54 @@
+/* Carrusel de marcas (ligero y accesible) */
+.carousel {
+  position: relative;
+  padding-block: 0.25rem;
+}
+
+.track {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  grid-auto-columns: clamp(96px, 12vw, 140px); /* tamaño de cada logo */
+  gap: 0.75rem;
+  margin-top: 60px;
+  margin-bottom: 60px;
+  padding: 20px;
+  background-color: #fff;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: 1rem;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.item {
+  scroll-snap-align: start;
+  display: grid;
+  place-items: center;
+  background: #fff;
+  border-radius: 12px;
+  padding: 0.5rem;
+  min-block-size: 72px;
+}
+
+.item img {
+  max-width: 100%;
+  max-height: 68px;
+  object-fit: contain;
+}
+
+@media (max-width: 640px) {
+  .track {
+    grid-auto-columns: clamp(88px, 28vw, 120px);
+  }
+  .item img {
+    max-height: 42px;
+  }
+}

@@ -1,0 +1,18 @@
+.chips{
+  width: auto;
+  height: auto;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.chip{
+  width: 10%;
+  background-color: #fff;
+  border: solid #c8c8c8;
+  padding: 30px;
+  border-radius: 25px;
+  font-size: 14px;
+  box-shadow: #000;
+}
